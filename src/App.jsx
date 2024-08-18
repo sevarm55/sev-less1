@@ -13,28 +13,28 @@ export default function App() {
 	])
 
 	const handlerSalaryUp = (id) => {
-    let temp = [...people]
-    let index = temp.findIndex(x => x.id === id)
-    temp[index].salary += 10000
-    setPeople(temp)
-  }
+		let temp = [...people]
+		let index = temp.findIndex((x) => x.id === id)
+		temp[index].salary += 10000
+		setPeople(temp)
+	}
 
-  const handlerSalaryDown = (id) => {
-    let temp = [...people]
-    let index = temp.findIndex(x => x.id === id)
-    temp[index].salary -= 50000
+	const handlerSalaryDown = (id) => {
+		let temp = [...people]
+		let index = temp.findIndex((x) => x.id === id)
+		temp[index].salary -= 50000
 
-    if(temp[index].salary <= 50000) {
-      temp[index].salary = 50000
-    }
-    
-    setPeople(temp)
-  }
+		if (temp[index].salary <= 50000) {
+			temp[index].salary = 50000
+		}
 
-  const handlerRemove = (id) => {
-    let filter = people.filter(item => item.id !== id)
-    setPeople(filter)
-  }
+		setPeople(temp)
+	}
+
+	const handlerRemove = (id) => {
+		let filter = people.filter((item) => item.id !== id)
+		setPeople(filter)
+	}
 
 	return (
 		<>
@@ -47,9 +47,13 @@ export default function App() {
 						{item.surname}
 					</p>
 					<strong>{item.salary} AMD</strong>
-					<button onClick={() => handlerSalaryUp(item.id)}>Salary up</button> {" "}
-          <button onClick={() => handlerSalaryDown(item.id)}>Salary down</button>
-          <button onClick={() => handlerRemove(item.id)}>Remove</button>
+					<button onClick={() => handlerSalaryUp(item.id)}>
+						Salary up
+					</button>{' '}
+					<button onClick={() => handlerSalaryDown(item.id)}>
+						Salary down
+					</button>
+					<button onClick={() => handlerRemove(item.id)}>Remove</button>
 				</div>
 			))}
 		</>
